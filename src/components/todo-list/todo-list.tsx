@@ -1,4 +1,5 @@
 import {TaskType} from "../../types/task/task";
+import TodoItem from "../todo-item/todo-item";
 
 interface TodoListProps {
     title?: string;
@@ -6,9 +7,9 @@ interface TodoListProps {
 }
 
 export default function TodoList(props: TodoListProps): JSX.Element {
-    const {title = '', tasks = [] } = props;
+    const {title = '', tasks = []} = props;
 
-    return(
+    return (
         <div>
             <h3>{title}</h3>
             <div>
@@ -16,9 +17,7 @@ export default function TodoList(props: TodoListProps): JSX.Element {
                 <button>+</button>
             </div>
             <ul>
-                <li><input type="checkbox" checked={true}/> <span>HTML&CSS</span></li>
-                <li><input type="checkbox" checked={true}/> <span>JS</span></li>
-                <li><input type="checkbox" checked={false}/> <span>React</span></li>
+                {tasks.map((task) => <TodoItem key={task.id} task={task}/>)}
             </ul>
             <div>
                 <button>All</button>
@@ -27,4 +26,9 @@ export default function TodoList(props: TodoListProps): JSX.Element {
             </div>
         </div>
     );
+}
+
+{/*<li><input type="checkbox" checked={true}/> <span>HTML&CSS</span></li>
+                <li><input type="checkbox" checked={true}/> <span>JS</span></li>
+                <li><input type="checkbox" checked={false}/> <span>React</span></li>*/
 }
