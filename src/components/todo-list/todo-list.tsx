@@ -1,9 +1,12 @@
+import {TaskType} from "../../types/task/task";
+
 interface TodoListProps {
     title?: string;
+    tasks?: TaskType[];
 }
 
 export default function TodoList(props: TodoListProps): JSX.Element {
-    const {title = '' } = props;
+    const {title = '', tasks = [] } = props;
 
     return(
         <div>
