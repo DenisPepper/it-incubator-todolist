@@ -1,9 +1,13 @@
-import React from "react";
+interface TodoListProps {
+    title?: string;
+}
 
-export default function TodoList(): JSX.Element {
+export default function TodoList(props: TodoListProps): JSX.Element {
+    const {title = '' } = props;
+
     return(
-        <>
-            <h3>What to learn</h3>
+        <div>
+            <h3>{title}</h3>
             <div>
                 <input/>
                 <button>+</button>
@@ -18,6 +22,6 @@ export default function TodoList(): JSX.Element {
                 <button>Active</button>
                 <button>Completed</button>
             </div>
-        </>
+        </div>
     );
 }
