@@ -16,9 +16,14 @@ export default function TodoList(props: TodoListProps): JSX.Element {
                 <input/>
                 <button>+</button>
             </div>
-            <ul>
-                {tasks.map((task) => <TodoItem key={task.id} task={task}/>)}
-            </ul>
+            {tasks.length > 0 ?
+                <ul>
+                    {tasks.map((task) => <TodoItem key={task.id} task={task}/>)}
+                </ul>
+                :
+                <span>Your tasks list is empty </span>
+            }
+
             <div>
                 <button>All</button>
                 <button>Active</button>
